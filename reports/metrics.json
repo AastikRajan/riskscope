@@ -1,0 +1,50 @@
+{
+  "balance": "253,680 rows, 35,346 positive (diabetes or prediabetes) (13.9%); ratio about 1:6.2",
+  "best_params": {
+    "num_leaves": 31,
+    "learning_rate": 0.03,
+    "min_child_samples": 200
+  },
+  "best_iteration": 269,
+  "threshold": 0.13043478260869565,
+  "bands": {
+    "low_max": 0.0697,
+    "high_min": 0.13043478260869565
+  },
+  "target_recall": 0.8,
+  "results": {
+    "logistic_regression": {
+      "roc_auc": 0.820649792100138,
+      "pr_auc": 0.39969877753047683,
+      "brier": 0.1773073748601348,
+      "recall": 0.7974253784127883,
+      "precision": 0.29718473218051455,
+      "false_positive_rate": 0.3052877458950695
+    },
+    "lightgbm_raw": {
+      "roc_auc": 0.8274398603380929,
+      "pr_auc": 0.4276667894350391,
+      "brier": 0.09701103344957647,
+      "recall": 0.7936058848493422,
+      "precision": 0.3031449259699557,
+      "false_positive_rate": 0.29532598987793984
+    },
+    "lightgbm_calibrated": {
+      "roc_auc": 0.8271935712952094,
+      "pr_auc": 0.41910139782440176,
+      "brier": 0.09706660679524265,
+      "recall": 0.7953034375442071,
+      "precision": 0.3024694679076774,
+      "false_positive_rate": 0.29690613048755354
+    }
+  },
+  "val_brier": {
+    "raw": 0.09662594266626384,
+    "calibrated": 0.09635152146366963
+  },
+  "split_sizes": [
+    152208,
+    50736,
+    50736
+  ]
+}
