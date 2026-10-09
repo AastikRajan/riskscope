@@ -57,7 +57,7 @@ Plainly: the model is not equally good for everyone. Discrimination is lower for
 ## Choices
 
 - LightGBM (CPU) vs a logistic-regression baseline; light grid over leaves, learning rate and min child samples, picked on validation PR-AUC with early stopping on AUC.
-- No class re-weighting for LightGBM; imbalance is handled by the recall-based threshold. (An earlier weighted attempt stopped after a handful of trees and scored worse.)
+- No class re-weighting for LightGBM; imbalance is handled by the recall-based threshold.
 - SHAP `TreeExplainer` is used for the global and local explanations.
 - Risk bands: low is below half the training base rate, high is at or above the screening threshold, moderate in between.
 
