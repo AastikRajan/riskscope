@@ -4,7 +4,7 @@ from pathlib import Path
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-DATA_PATH = Path(__file__).resolve().parents[1] / "data" / "diabetes_binary_health_indicators_BRFSS2015.csv"
+DATA_PATH = Path(__file__).resolve().parents[1] / "data" / "diabetes_binary_health_indicators_BRFSS2015.parquet"
 TARGET = "Diabetes_binary"
 SEED = 42
 
@@ -18,7 +18,7 @@ AGE_GROUPS = {  # BRFSS 13-level age code -> broader band
 
 def load_data(path: Path = DATA_PATH) -> pd.DataFrame:
     """Load the CSV; the row number becomes an explicit `id` index (the file has none)."""
-    df = pd.read_csv(path)
+    df = pd.read_parquet(path)
     df[TARGET] = df[TARGET].astype(int)
     df.index.name = "id"
     return df

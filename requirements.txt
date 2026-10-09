@@ -1,4 +1,4 @@
-numpy
+numpy<2.3
 pandas
 scikit-learn
 lightgbm
@@ -9,3 +9,4 @@ fastapi
 uvicorn
 httpx
 pytest
+pyarrow

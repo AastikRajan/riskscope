@@ -5,7 +5,7 @@ survey data. It should read as the work of a junior data scientist who knows
 imbalanced classification, calibration, fairness checks, explainability and serving.
 
 ## Data (already in the repo; no download needed)
-`data/diabetes_binary_health_indicators_BRFSS2015.csv` and the other CSVs from the
+`data/diabetes_binary_health_indicators_BRFSS2015.parquet` and the other CSVs from the
 Kaggle dataset "Diabetes Health Indicators Dataset" (alexteboul, CC0), built from the
 CDC's Behavioral Risk Factor Surveillance System 2015 (253,680 survey responses, 21
 features). Use the binary diabetes file as the main target.

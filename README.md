@@ -8,7 +8,7 @@ A screening tool is used to decide who gets a follow-up test, so the *number* ma
 
 ## Data
 
-`data/diabetes_binary_health_indicators_BRFSS2015.csv`: 253,680 rows, 35,346 positive (diabetes or prediabetes) (13.9%); ratio about 1:6.2, 21 survey features. The target is diabetes or prediabetes. Sources: CDC BRFSS 2015; Kaggle dataset alexteboul/diabetes-health-indicators-dataset (CC0). The file has no respondent id, so the row number is used as `id`. Stratified 60/20/20 train/validation/test split, seed 42.
+`data/diabetes_binary_health_indicators_BRFSS2015.parquet`: 253,680 rows, 35,346 positive (diabetes or prediabetes) (13.9%); ratio about 1:6.2, 21 survey features. The target is diabetes or prediabetes. Sources: CDC BRFSS 2015; Kaggle dataset alexteboul/diabetes-health-indicators-dataset (CC0). The file has no respondent id, so the row number is used as `id`. Stratified 60/20/20 train/validation/test split, seed 42.
 
 ## Run it
 
