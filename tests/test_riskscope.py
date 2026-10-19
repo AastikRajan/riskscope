@@ -31,14 +31,30 @@ def test_split_is_deterministic(splits):
     assert list(again[2].index) == list(splits[2].index)
 
 
-def test_calibration_improves_validation_brier(splits):
+def test_calibration_on_test_set(splits):
     import joblib
+    import numpy as np
     from app.main import ARTIFACT
     art = joblib.load(ARTIFACT)
-    val = splits[1]
-    raw = art["model"].predict_proba(val[feature_columns(val)])[:, 1]
+    test = splits[2]
+    raw = art["model"].predict_proba(test[feature_columns(test)])[:, 1]
     cal = art["calibrator"].predict(raw)
-    assert brier_score_loss(val[TARGET], cal) < brier_score_loss(val[TARGET], raw)
+
+    brier = brier_score_loss(test[TARGET], cal)
+    assert brier < 0.098
+
+    n_bins = 10
+    bins = np.linspace(0., 1., n_bins + 1)
+    binids = np.digitize(cal, bins) - 1
+    ece = 0
+    for i in range(n_bins):
+        mask = binids == i
+        if np.any(mask):
+            prob_pred = np.mean(cal[mask])
+            prob_true = np.mean(test[TARGET].values[mask])
+            ece += np.abs(prob_pred - prob_true) * np.sum(mask) / len(test)
+
+    assert ece < 0.005
 
 
 def test_health():
